@@ -5,10 +5,12 @@ const ls = new LS()
 
 // event elements
 const form = document.querySelector('form');
+const booksList = document.querySelector('#books-list');
 
 // events
 form.addEventListener('submit', addBook);
 document.addEventListener('DOMContentLoaded', getBooksFromLocalStorage);
+booksList.addEventListener('click', delBook);
 
 function getBooksFromLocalStorage(){
     let books = ls.getData("books")
@@ -41,4 +43,9 @@ function addBook(event){
     authorInput.value = '';
     isbnInput.value = '';
     event.preventDefault();
+}
+function delBook (event) {
+    console.log(event);
+    /*ls.delBook(event);*/
+    ui.delBook(event);
 }
